@@ -164,6 +164,7 @@ pub fn new() -> io::Result<(Sender, Receiver)> {
         target_os = "linux",
         target_os = "netbsd",
         target_os = "openbsd",
+        target_os = "cygwin",
         target_os = "illumos",
         target_os = "redox",
     ))]
@@ -199,6 +200,7 @@ pub fn new() -> io::Result<(Sender, Receiver)> {
         target_os = "linux",
         target_os = "netbsd",
         target_os = "openbsd",
+        target_os = "cygwin",
         target_os = "ios",
         target_os = "macos",
         target_os = "illumos",

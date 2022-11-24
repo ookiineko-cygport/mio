@@ -239,6 +239,7 @@ use std::os::unix::io::{AsRawFd, RawFd};
 /// | Linux         | [epoll]   |
 /// | NetBSD        | [kqueue]  |
 /// | OpenBSD       | [kqueue]  |
+/// | Cygwin        | [poll]    |
 /// | Windows       | [IOCP]    |
 /// | macOS         | [kqueue]  |
 ///
@@ -256,6 +257,7 @@ use std::os::unix::io::{AsRawFd, RawFd};
 /// data to be copied into an intermediate buffer before it is passed to the
 /// kernel.
 ///
+/// [poll]: https://man7.org/linux/man-pages/man2/poll.2.html
 /// [epoll]: https://man7.org/linux/man-pages/man7/epoll.7.html
 /// [kqueue]: https://www.freebsd.org/cgi/man.cgi?query=kqueue&sektion=2
 /// [IOCP]: https://docs.microsoft.com/en-us/windows/win32/fileio/i-o-completion-ports

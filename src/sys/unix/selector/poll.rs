@@ -486,9 +486,9 @@ impl Drop for SelectorState {
     }
 }
 
-#[cfg(not(target_os = "haiku"))]
+#[cfg(not(any(target_os = "haiku", target_os = "cygwin")))]
 const READ_EVENTS: libc::c_short = libc::POLLIN | libc::POLLRDHUP;
-#[cfg(target_os = "haiku")]
+#[cfg(any(target_os = "haiku", target_os = "cygwin"))]
 const READ_EVENTS: libc::c_short = libc::POLLIN;
 
 const WRITE_EVENTS: libc::c_short = libc::POLLOUT;
@@ -569,7 +569,7 @@ pub mod event {
         (event.events & libc::POLLERR) != 0
     }
 
-    #[cfg(not(target_os = "haiku"))]
+    #[cfg(not(any(target_os = "haiku", target_os = "cygwin")))]
     pub fn is_read_closed(event: &Event) -> bool {
         // Both halves of the socket have closed
         (event.events & libc::POLLHUP) != 0
@@ -577,7 +577,7 @@ pub mod event {
             || (event.events & libc::POLLRDHUP) != 0
     }
 
-    #[cfg(target_os = "haiku")]
+    #[cfg(any(target_os = "haiku", target_os = "cygwin"))]
     pub fn is_read_closed(event: &Event) -> bool {
         event.events & libc::POLLHUP != 0
     }
@@ -622,7 +622,7 @@ pub mod event {
             libc::POLLWRBAND,
             libc::POLLERR,
             libc::POLLHUP,
-            #[cfg(not(target_os = "haiku"))]
+            #[cfg(not(any(target_os = "haiku", target_os = "cygwin")))]
             libc::POLLRDHUP,
         );
 

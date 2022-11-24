@@ -125,6 +125,7 @@ pub use self::kqueue::Waker;
     target_os = "illumos",
     target_os = "netbsd",
     target_os = "openbsd",
+    target_os = "cygwin",
     target_os = "redox",
     target_os = "haiku",
 ))]
@@ -238,6 +239,7 @@ mod pipe {
     target_os = "illumos",
     target_os = "netbsd",
     target_os = "openbsd",
+    target_os = "cygwin",
     target_os = "redox",
     target_os = "haiku",
 ))]

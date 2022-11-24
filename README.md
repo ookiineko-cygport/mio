@@ -136,6 +136,7 @@ Currently supported platforms:
 * Linux
 * NetBSD
 * OpenBSD
+* Cygwin
 * Windows
 * iOS
 * macOS
